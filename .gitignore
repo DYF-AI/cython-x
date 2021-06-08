@@ -7,6 +7,10 @@ bin-release/
 # Other files and folders
 .settings/
 
+./classcpp
+./classcy
+./compareNumpy
+
 # Executables
 *.swf
 *.air
