@@ -4,6 +4,9 @@ bin-release/
 [Oo]bj/
 [Bb]in/
 
+build/
+dist/
+
 # Other files and folders
 .settings/
 
@@ -16,6 +19,7 @@ bin-release/
 *.air
 *.ipa
 *.apk
+*.egg-info
 
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
