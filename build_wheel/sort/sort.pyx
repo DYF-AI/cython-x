@@ -1,10 +1,12 @@
 import math
-
+cimport cython
 cdef swap(arr, int i, int j):
     arr[i], arr[j] = arr[j], arr[i]
 
 
 # 冒泡排序
+@cython.boundscheck(False)  # Deactivate bounds checking
+@cython.wraparound(False)   # Deactivate negative indexing.
 def bubbleSort(arr):
     cdef int i, j
     for i in range(1, len(arr)):
@@ -14,6 +16,8 @@ def bubbleSort(arr):
     return arr
 
 # 选择排序
+@cython.boundscheck(False)  # Deactivate bounds checking
+@cython.wraparound(False)   # Deactivate negative indexing.
 def selectionSort(arr):
     cdef int i, j
     for i in range(len(arr) - 1):
@@ -28,6 +32,8 @@ def selectionSort(arr):
     return arr
 
 # 插入排序
+@cython.boundscheck(False)  # Deactivate bounds checking
+@cython.wraparound(False)   # Deactivate negative indexing.
 def insertionSort(arr):
     cdef int i, preIndex
     for i in range(len(arr)):
@@ -40,6 +46,8 @@ def insertionSort(arr):
     return arr
 
 # 希尔排序
+@cython.boundscheck(False)  # Deactivate bounds checking
+@cython.wraparound(False)   # Deactivate negative indexing.
 def shellSort(arr):
     gap=1
     while(gap < len(arr)/3):
@@ -56,6 +64,8 @@ def shellSort(arr):
     return arr
 
 # 归并排序
+@cython.boundscheck(False)  # Deactivate bounds checking
+@cython.wraparound(False)   # Deactivate negative indexing.
 def mergeSort(arr):
     if(len(arr)<2):
         return arr
@@ -77,6 +87,8 @@ cdef list merge(left,right):
     return result
 
 # 快速排序
+@cython.boundscheck(False)  # Deactivate bounds checking
+@cython.wraparound(False)   # Deactivate negative indexing.
 def quickSort(arr, left=None, right=None):
     left = 0 if not isinstance(left,(int, float)) else left
     right = len(arr)-1 if not isinstance(right,(int, float)) else right

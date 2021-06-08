@@ -1225,6 +1225,8 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
+/* Module declarations from 'cython' */
+
 /* Module declarations from 'sort' */
 static PyObject *__pyx_f_4sort_swap(PyObject *, int, int); /*proto*/
 static PyObject *__pyx_f_4sort_merge(PyObject *, PyObject *); /*proto*/
@@ -1326,7 +1328,7 @@ static PyObject *__pyx_codeobj__14;
 
 /* "sort.pyx":3
  * import math
- * 
+ * cimport cython
  * cdef swap(arr, int i, int j):             # <<<<<<<<<<<<<<
  *     arr[i], arr[j] = arr[j], arr[i]
  * 
@@ -1343,7 +1345,7 @@ static PyObject *__pyx_f_4sort_swap(PyObject *__pyx_v_arr, int __pyx_v_i, int __
   __Pyx_RefNannySetupContext("swap", 0);
 
   /* "sort.pyx":4
- * 
+ * cimport cython
  * cdef swap(arr, int i, int j):
  *     arr[i], arr[j] = arr[j], arr[i]             # <<<<<<<<<<<<<<
  * 
@@ -1360,7 +1362,7 @@ static PyObject *__pyx_f_4sort_swap(PyObject *__pyx_v_arr, int __pyx_v_i, int __
 
   /* "sort.pyx":3
  * import math
- * 
+ * cimport cython
  * cdef swap(arr, int i, int j):             # <<<<<<<<<<<<<<
  *     arr[i], arr[j] = arr[j], arr[i]
  * 
@@ -1380,9 +1382,9 @@ static PyObject *__pyx_f_4sort_swap(PyObject *__pyx_v_arr, int __pyx_v_i, int __
   return __pyx_r;
 }
 
-/* "sort.pyx":8
- * 
- * #
+/* "sort.pyx":10
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def bubbleSort(arr):             # <<<<<<<<<<<<<<
  *     cdef int i, j
  *     for i in range(1, len(arr)):
@@ -1423,51 +1425,51 @@ static PyObject *__pyx_pf_4sort_bubbleSort(CYTHON_UNUSED PyObject *__pyx_self, P
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("bubbleSort", 0);
 
-  /* "sort.pyx":10
+  /* "sort.pyx":12
  * def bubbleSort(arr):
  *     cdef int i, j
  *     for i in range(1, len(arr)):             # <<<<<<<<<<<<<<
  *         for j in range(0, len(arr)-i):
  *             if arr[j] > arr[j+1]:
  */
-  __pyx_t_1 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_1 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 12, __pyx_L1_error)
   __pyx_t_2 = __pyx_t_1;
   for (__pyx_t_3 = 1; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "sort.pyx":11
+    /* "sort.pyx":13
  *     cdef int i, j
  *     for i in range(1, len(arr)):
  *         for j in range(0, len(arr)-i):             # <<<<<<<<<<<<<<
  *             if arr[j] > arr[j+1]:
  *                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
  */
-    __pyx_t_4 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 11, __pyx_L1_error)
+    __pyx_t_4 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 13, __pyx_L1_error)
     __pyx_t_5 = (__pyx_t_4 - __pyx_v_i);
     __pyx_t_4 = __pyx_t_5;
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_4; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "sort.pyx":12
+      /* "sort.pyx":14
  *     for i in range(1, len(arr)):
  *         for j in range(0, len(arr)-i):
  *             if arr[j] > arr[j+1]:             # <<<<<<<<<<<<<<
  *                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
  *     return arr
  */
-      __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 12, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 14, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __pyx_t_8 = (__pyx_v_j + 1);
-      __pyx_t_9 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_t_8, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 12, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_t_8, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 14, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_10 = PyObject_RichCompare(__pyx_t_7, __pyx_t_9, Py_GT); __Pyx_XGOTREF(__pyx_t_10); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 12, __pyx_L1_error)
+      __pyx_t_10 = PyObject_RichCompare(__pyx_t_7, __pyx_t_9, Py_GT); __Pyx_XGOTREF(__pyx_t_10); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 14, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_10); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 12, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_10); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 14, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       if (__pyx_t_11) {
 
-        /* "sort.pyx":13
+        /* "sort.pyx":15
  *         for j in range(0, len(arr)-i):
  *             if arr[j] > arr[j+1]:
  *                 arr[j], arr[j + 1] = arr[j + 1], arr[j]             # <<<<<<<<<<<<<<
@@ -1475,17 +1477,17 @@ static PyObject *__pyx_pf_4sort_bubbleSort(CYTHON_UNUSED PyObject *__pyx_self, P
  * 
  */
         __pyx_t_8 = (__pyx_v_j + 1);
-        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_t_8, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 13, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_t_8, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 15, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_9 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 13, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 15, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        if (unlikely(__Pyx_SetItemInt(__pyx_v_arr, __pyx_v_j, __pyx_t_10, int, 1, __Pyx_PyInt_From_int, 0, 1, 1) < 0)) __PYX_ERR(0, 13, __pyx_L1_error)
+        if (unlikely(__Pyx_SetItemInt(__pyx_v_arr, __pyx_v_j, __pyx_t_10, int, 1, __Pyx_PyInt_From_int, 0, 0, 0) < 0)) __PYX_ERR(0, 15, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_8 = (__pyx_v_j + 1);
-        if (unlikely(__Pyx_SetItemInt(__pyx_v_arr, __pyx_t_8, __pyx_t_9, long, 1, __Pyx_PyInt_From_long, 0, 1, 1) < 0)) __PYX_ERR(0, 13, __pyx_L1_error)
+        if (unlikely(__Pyx_SetItemInt(__pyx_v_arr, __pyx_t_8, __pyx_t_9, long, 1, __Pyx_PyInt_From_long, 0, 0, 0) < 0)) __PYX_ERR(0, 15, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-        /* "sort.pyx":12
+        /* "sort.pyx":14
  *     for i in range(1, len(arr)):
  *         for j in range(0, len(arr)-i):
  *             if arr[j] > arr[j+1]:             # <<<<<<<<<<<<<<
@@ -1496,7 +1498,7 @@ static PyObject *__pyx_pf_4sort_bubbleSort(CYTHON_UNUSED PyObject *__pyx_self, P
     }
   }
 
-  /* "sort.pyx":14
+  /* "sort.pyx":16
  *             if arr[j] > arr[j+1]:
  *                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
  *     return arr             # <<<<<<<<<<<<<<
@@ -1508,9 +1510,9 @@ static PyObject *__pyx_pf_4sort_bubbleSort(CYTHON_UNUSED PyObject *__pyx_self, P
   __pyx_r = __pyx_v_arr;
   goto __pyx_L0;
 
-  /* "sort.pyx":8
- * 
- * #
+  /* "sort.pyx":10
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def bubbleSort(arr):             # <<<<<<<<<<<<<<
  *     cdef int i, j
  *     for i in range(1, len(arr)):
@@ -1529,9 +1531,9 @@ static PyObject *__pyx_pf_4sort_bubbleSort(CYTHON_UNUSED PyObject *__pyx_self, P
   return __pyx_r;
 }
 
-/* "sort.pyx":17
- * 
- * #
+/* "sort.pyx":21
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def selectionSort(arr):             # <<<<<<<<<<<<<<
  *     cdef int i, j
  *     for i in range(len(arr) - 1):
@@ -1572,20 +1574,20 @@ static PyObject *__pyx_pf_4sort_2selectionSort(CYTHON_UNUSED PyObject *__pyx_sel
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("selectionSort", 0);
 
-  /* "sort.pyx":19
+  /* "sort.pyx":23
  * def selectionSort(arr):
  *     cdef int i, j
  *     for i in range(len(arr) - 1):             # <<<<<<<<<<<<<<
  *         #
  *         minIndex = i
  */
-  __pyx_t_1 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_1 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 23, __pyx_L1_error)
   __pyx_t_2 = (__pyx_t_1 - 1);
   __pyx_t_1 = __pyx_t_2;
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_1; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "sort.pyx":21
+    /* "sort.pyx":25
  *     for i in range(len(arr) - 1):
  *         #
  *         minIndex = i             # <<<<<<<<<<<<<<
@@ -1594,37 +1596,37 @@ static PyObject *__pyx_pf_4sort_2selectionSort(CYTHON_UNUSED PyObject *__pyx_sel
  */
     __pyx_v_minIndex = __pyx_v_i;
 
-    /* "sort.pyx":22
+    /* "sort.pyx":26
  *         #
  *         minIndex = i
  *         for j in range(i + 1, len(arr)):             # <<<<<<<<<<<<<<
  *             if arr[j] < arr[minIndex]:
  *                 minIndex = j
  */
-    __pyx_t_4 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 22, __pyx_L1_error)
+    __pyx_t_4 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 26, __pyx_L1_error)
     __pyx_t_5 = __pyx_t_4;
     for (__pyx_t_6 = (__pyx_v_i + 1); __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "sort.pyx":23
+      /* "sort.pyx":27
  *         minIndex = i
  *         for j in range(i + 1, len(arr)):
  *             if arr[j] < arr[minIndex]:             # <<<<<<<<<<<<<<
  *                 minIndex = j
  *         # i  i
  */
-      __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 23, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 27, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_8 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_minIndex, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 23, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_minIndex, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 27, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_9 = PyObject_RichCompare(__pyx_t_7, __pyx_t_8, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 23, __pyx_L1_error)
+      __pyx_t_9 = PyObject_RichCompare(__pyx_t_7, __pyx_t_8, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 27, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 23, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 27, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       if (__pyx_t_10) {
 
-        /* "sort.pyx":24
+        /* "sort.pyx":28
  *         for j in range(i + 1, len(arr)):
  *             if arr[j] < arr[minIndex]:
  *                 minIndex = j             # <<<<<<<<<<<<<<
@@ -1633,7 +1635,7 @@ static PyObject *__pyx_pf_4sort_2selectionSort(CYTHON_UNUSED PyObject *__pyx_sel
  */
         __pyx_v_minIndex = __pyx_v_j;
 
-        /* "sort.pyx":23
+        /* "sort.pyx":27
  *         minIndex = i
  *         for j in range(i + 1, len(arr)):
  *             if arr[j] < arr[minIndex]:             # <<<<<<<<<<<<<<
@@ -1643,7 +1645,7 @@ static PyObject *__pyx_pf_4sort_2selectionSort(CYTHON_UNUSED PyObject *__pyx_sel
       }
     }
 
-    /* "sort.pyx":26
+    /* "sort.pyx":30
  *                 minIndex = j
  *         # i  i
  *         if i != minIndex:             # <<<<<<<<<<<<<<
@@ -1653,23 +1655,23 @@ static PyObject *__pyx_pf_4sort_2selectionSort(CYTHON_UNUSED PyObject *__pyx_sel
     __pyx_t_10 = ((__pyx_v_i != __pyx_v_minIndex) != 0);
     if (__pyx_t_10) {
 
-      /* "sort.pyx":27
+      /* "sort.pyx":31
  *         # i  i
  *         if i != minIndex:
  *             arr[i], arr[minIndex] = arr[minIndex], arr[i]             # <<<<<<<<<<<<<<
  *     return arr
  * 
  */
-      __pyx_t_9 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_minIndex, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 27, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_minIndex, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 31, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_8 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 27, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 31, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      if (unlikely(__Pyx_SetItemInt(__pyx_v_arr, __pyx_v_i, __pyx_t_9, int, 1, __Pyx_PyInt_From_int, 0, 1, 1) < 0)) __PYX_ERR(0, 27, __pyx_L1_error)
+      if (unlikely(__Pyx_SetItemInt(__pyx_v_arr, __pyx_v_i, __pyx_t_9, int, 1, __Pyx_PyInt_From_int, 0, 0, 0) < 0)) __PYX_ERR(0, 31, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(__Pyx_SetItemInt(__pyx_v_arr, __pyx_v_minIndex, __pyx_t_8, int, 1, __Pyx_PyInt_From_int, 0, 1, 1) < 0)) __PYX_ERR(0, 27, __pyx_L1_error)
+      if (unlikely(__Pyx_SetItemInt(__pyx_v_arr, __pyx_v_minIndex, __pyx_t_8, int, 1, __Pyx_PyInt_From_int, 0, 0, 0) < 0)) __PYX_ERR(0, 31, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "sort.pyx":26
+      /* "sort.pyx":30
  *                 minIndex = j
  *         # i  i
  *         if i != minIndex:             # <<<<<<<<<<<<<<
@@ -1679,7 +1681,7 @@ static PyObject *__pyx_pf_4sort_2selectionSort(CYTHON_UNUSED PyObject *__pyx_sel
     }
   }
 
-  /* "sort.pyx":28
+  /* "sort.pyx":32
  *         if i != minIndex:
  *             arr[i], arr[minIndex] = arr[minIndex], arr[i]
  *     return arr             # <<<<<<<<<<<<<<
@@ -1691,9 +1693,9 @@ static PyObject *__pyx_pf_4sort_2selectionSort(CYTHON_UNUSED PyObject *__pyx_sel
   __pyx_r = __pyx_v_arr;
   goto __pyx_L0;
 
-  /* "sort.pyx":17
- * 
- * #
+  /* "sort.pyx":21
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def selectionSort(arr):             # <<<<<<<<<<<<<<
  *     cdef int i, j
  *     for i in range(len(arr) - 1):
@@ -1712,9 +1714,9 @@ static PyObject *__pyx_pf_4sort_2selectionSort(CYTHON_UNUSED PyObject *__pyx_sel
   return __pyx_r;
 }
 
-/* "sort.pyx":31
- * 
- * #
+/* "sort.pyx":37
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def insertionSort(arr):             # <<<<<<<<<<<<<<
  *     cdef int i, preIndex
  *     for i in range(len(arr)):
@@ -1753,19 +1755,19 @@ static PyObject *__pyx_pf_4sort_4insertionSort(CYTHON_UNUSED PyObject *__pyx_sel
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("insertionSort", 0);
 
-  /* "sort.pyx":33
+  /* "sort.pyx":39
  * def insertionSort(arr):
  *     cdef int i, preIndex
  *     for i in range(len(arr)):             # <<<<<<<<<<<<<<
  *         preIndex = i-1
  *         current = arr[i]
  */
-  __pyx_t_1 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_1 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 39, __pyx_L1_error)
   __pyx_t_2 = __pyx_t_1;
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "sort.pyx":34
+    /* "sort.pyx":40
  *     cdef int i, preIndex
  *     for i in range(len(arr)):
  *         preIndex = i-1             # <<<<<<<<<<<<<<
@@ -1774,19 +1776,19 @@ static PyObject *__pyx_pf_4sort_4insertionSort(CYTHON_UNUSED PyObject *__pyx_sel
  */
     __pyx_v_preIndex = (__pyx_v_i - 1);
 
-    /* "sort.pyx":35
+    /* "sort.pyx":41
  *     for i in range(len(arr)):
  *         preIndex = i-1
  *         current = arr[i]             # <<<<<<<<<<<<<<
  *         while preIndex >= 0 and arr[preIndex] > current:
  *             arr[preIndex+1] = arr[preIndex]
  */
-    __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 35, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 41, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_XDECREF_SET(__pyx_v_current, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "sort.pyx":36
+    /* "sort.pyx":42
  *         preIndex = i-1
  *         current = arr[i]
  *         while preIndex >= 0 and arr[preIndex] > current:             # <<<<<<<<<<<<<<
@@ -1800,30 +1802,30 @@ static PyObject *__pyx_pf_4sort_4insertionSort(CYTHON_UNUSED PyObject *__pyx_sel
         __pyx_t_5 = __pyx_t_6;
         goto __pyx_L7_bool_binop_done;
       }
-      __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_preIndex, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 36, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_preIndex, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 42, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_7 = PyObject_RichCompare(__pyx_t_4, __pyx_v_current, Py_GT); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 36, __pyx_L1_error)
+      __pyx_t_7 = PyObject_RichCompare(__pyx_t_4, __pyx_v_current, Py_GT); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 42, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 36, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 42, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_5 = __pyx_t_6;
       __pyx_L7_bool_binop_done:;
       if (!__pyx_t_5) break;
 
-      /* "sort.pyx":37
+      /* "sort.pyx":43
  *         current = arr[i]
  *         while preIndex >= 0 and arr[preIndex] > current:
  *             arr[preIndex+1] = arr[preIndex]             # <<<<<<<<<<<<<<
  *             preIndex-=1
  *         arr[preIndex+1] = current
  */
-      __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_preIndex, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 37, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_preIndex, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 43, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __pyx_t_8 = (__pyx_v_preIndex + 1);
-      if (unlikely(__Pyx_SetItemInt(__pyx_v_arr, __pyx_t_8, __pyx_t_7, long, 1, __Pyx_PyInt_From_long, 0, 1, 1) < 0)) __PYX_ERR(0, 37, __pyx_L1_error)
+      if (unlikely(__Pyx_SetItemInt(__pyx_v_arr, __pyx_t_8, __pyx_t_7, long, 1, __Pyx_PyInt_From_long, 0, 0, 0) < 0)) __PYX_ERR(0, 43, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-      /* "sort.pyx":38
+      /* "sort.pyx":44
  *         while preIndex >= 0 and arr[preIndex] > current:
  *             arr[preIndex+1] = arr[preIndex]
  *             preIndex-=1             # <<<<<<<<<<<<<<
@@ -1833,7 +1835,7 @@ static PyObject *__pyx_pf_4sort_4insertionSort(CYTHON_UNUSED PyObject *__pyx_sel
       __pyx_v_preIndex = (__pyx_v_preIndex - 1);
     }
 
-    /* "sort.pyx":39
+    /* "sort.pyx":45
  *             arr[preIndex+1] = arr[preIndex]
  *             preIndex-=1
  *         arr[preIndex+1] = current             # <<<<<<<<<<<<<<
@@ -1841,10 +1843,10 @@ static PyObject *__pyx_pf_4sort_4insertionSort(CYTHON_UNUSED PyObject *__pyx_sel
  * 
  */
     __pyx_t_8 = (__pyx_v_preIndex + 1);
-    if (unlikely(__Pyx_SetItemInt(__pyx_v_arr, __pyx_t_8, __pyx_v_current, long, 1, __Pyx_PyInt_From_long, 0, 1, 1) < 0)) __PYX_ERR(0, 39, __pyx_L1_error)
+    if (unlikely(__Pyx_SetItemInt(__pyx_v_arr, __pyx_t_8, __pyx_v_current, long, 1, __Pyx_PyInt_From_long, 0, 0, 0) < 0)) __PYX_ERR(0, 45, __pyx_L1_error)
   }
 
-  /* "sort.pyx":40
+  /* "sort.pyx":46
  *             preIndex-=1
  *         arr[preIndex+1] = current
  *     return arr             # <<<<<<<<<<<<<<
@@ -1856,9 +1858,9 @@ static PyObject *__pyx_pf_4sort_4insertionSort(CYTHON_UNUSED PyObject *__pyx_sel
   __pyx_r = __pyx_v_arr;
   goto __pyx_L0;
 
-  /* "sort.pyx":31
- * 
- * #
+  /* "sort.pyx":37
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def insertionSort(arr):             # <<<<<<<<<<<<<<
  *     cdef int i, preIndex
  *     for i in range(len(arr)):
@@ -1877,9 +1879,9 @@ static PyObject *__pyx_pf_4sort_4insertionSort(CYTHON_UNUSED PyObject *__pyx_sel
   return __pyx_r;
 }
 
-/* "sort.pyx":43
- * 
- * #
+/* "sort.pyx":51
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def shellSort(arr):             # <<<<<<<<<<<<<<
  *     gap=1
  *     while(gap < len(arr)/3):
@@ -1919,8 +1921,8 @@ static PyObject *__pyx_pf_4sort_6shellSort(CYTHON_UNUSED PyObject *__pyx_self, P
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("shellSort", 0);
 
-  /* "sort.pyx":44
- * #
+  /* "sort.pyx":52
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def shellSort(arr):
  *     gap=1             # <<<<<<<<<<<<<<
  *     while(gap < len(arr)/3):
@@ -1929,7 +1931,7 @@ static PyObject *__pyx_pf_4sort_6shellSort(CYTHON_UNUSED PyObject *__pyx_self, P
   __Pyx_INCREF(__pyx_int_1);
   __pyx_v_gap = __pyx_int_1;
 
-  /* "sort.pyx":45
+  /* "sort.pyx":53
  * def shellSort(arr):
  *     gap=1
  *     while(gap < len(arr)/3):             # <<<<<<<<<<<<<<
@@ -1937,32 +1939,32 @@ static PyObject *__pyx_pf_4sort_6shellSort(CYTHON_UNUSED PyObject *__pyx_self, P
  *     while gap > 0:
  */
   while (1) {
-    __pyx_t_1 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 45, __pyx_L1_error)
-    __pyx_t_2 = PyInt_FromSsize_t(__Pyx_div_Py_ssize_t(__pyx_t_1, 3)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
+    __pyx_t_1 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 53, __pyx_L1_error)
+    __pyx_t_2 = PyInt_FromSsize_t(__Pyx_div_Py_ssize_t(__pyx_t_1, 3)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 53, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = PyObject_RichCompare(__pyx_v_gap, __pyx_t_2, Py_LT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 45, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_v_gap, __pyx_t_2, Py_LT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 53, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 45, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 53, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (!__pyx_t_4) break;
 
-    /* "sort.pyx":46
+    /* "sort.pyx":54
  *     gap=1
  *     while(gap < len(arr)/3):
  *         gap = gap*3+1             # <<<<<<<<<<<<<<
  *     while gap > 0:
  *         for i in range(gap,len(arr)):
  */
-    __pyx_t_3 = PyNumber_Multiply(__pyx_v_gap, __pyx_int_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
+    __pyx_t_3 = PyNumber_Multiply(__pyx_v_gap, __pyx_int_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_t_3, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 46, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_t_3, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 54, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF_SET(__pyx_v_gap, __pyx_t_2);
     __pyx_t_2 = 0;
   }
 
-  /* "sort.pyx":47
+  /* "sort.pyx":55
  *     while(gap < len(arr)/3):
  *         gap = gap*3+1
  *     while gap > 0:             # <<<<<<<<<<<<<<
@@ -1970,22 +1972,22 @@ static PyObject *__pyx_pf_4sort_6shellSort(CYTHON_UNUSED PyObject *__pyx_self, P
  *             temp = arr[i]
  */
   while (1) {
-    __pyx_t_2 = PyObject_RichCompare(__pyx_v_gap, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 47, __pyx_L1_error)
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 47, __pyx_L1_error)
+    __pyx_t_2 = PyObject_RichCompare(__pyx_v_gap, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 55, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 55, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (!__pyx_t_4) break;
 
-    /* "sort.pyx":48
+    /* "sort.pyx":56
  *         gap = gap*3+1
  *     while gap > 0:
  *         for i in range(gap,len(arr)):             # <<<<<<<<<<<<<<
  *             temp = arr[i]
  *             j = i-gap
  */
-    __pyx_t_1 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 48, __pyx_L1_error)
-    __pyx_t_2 = PyInt_FromSsize_t(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
+    __pyx_t_1 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 56, __pyx_L1_error)
+    __pyx_t_2 = PyInt_FromSsize_t(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 56, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 48, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 56, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_v_gap);
     __Pyx_GIVEREF(__pyx_v_gap);
@@ -1993,16 +1995,16 @@ static PyObject *__pyx_pf_4sort_6shellSort(CYTHON_UNUSED PyObject *__pyx_self, P
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 56, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
       __pyx_t_3 = __pyx_t_2; __Pyx_INCREF(__pyx_t_3); __pyx_t_1 = 0;
       __pyx_t_5 = NULL;
     } else {
-      __pyx_t_1 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 48, __pyx_L1_error)
+      __pyx_t_1 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 56, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_5 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 48, __pyx_L1_error)
+      __pyx_t_5 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 56, __pyx_L1_error)
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     for (;;) {
@@ -2010,17 +2012,17 @@ static PyObject *__pyx_pf_4sort_6shellSort(CYTHON_UNUSED PyObject *__pyx_self, P
         if (likely(PyList_CheckExact(__pyx_t_3))) {
           if (__pyx_t_1 >= PyList_GET_SIZE(__pyx_t_3)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_2 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_1); __Pyx_INCREF(__pyx_t_2); __pyx_t_1++; if (unlikely(0 < 0)) __PYX_ERR(0, 48, __pyx_L1_error)
+          __pyx_t_2 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_1); __Pyx_INCREF(__pyx_t_2); __pyx_t_1++; if (unlikely(0 < 0)) __PYX_ERR(0, 56, __pyx_L1_error)
           #else
-          __pyx_t_2 = PySequence_ITEM(__pyx_t_3, __pyx_t_1); __pyx_t_1++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
+          __pyx_t_2 = PySequence_ITEM(__pyx_t_3, __pyx_t_1); __pyx_t_1++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 56, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           #endif
         } else {
           if (__pyx_t_1 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_1); __Pyx_INCREF(__pyx_t_2); __pyx_t_1++; if (unlikely(0 < 0)) __PYX_ERR(0, 48, __pyx_L1_error)
+          __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_1); __Pyx_INCREF(__pyx_t_2); __pyx_t_1++; if (unlikely(0 < 0)) __PYX_ERR(0, 56, __pyx_L1_error)
           #else
-          __pyx_t_2 = PySequence_ITEM(__pyx_t_3, __pyx_t_1); __pyx_t_1++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
+          __pyx_t_2 = PySequence_ITEM(__pyx_t_3, __pyx_t_1); __pyx_t_1++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 56, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           #endif
         }
@@ -2030,7 +2032,7 @@ static PyObject *__pyx_pf_4sort_6shellSort(CYTHON_UNUSED PyObject *__pyx_self, P
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 48, __pyx_L1_error)
+            else __PYX_ERR(0, 56, __pyx_L1_error)
           }
           break;
         }
@@ -2039,31 +2041,31 @@ static PyObject *__pyx_pf_4sort_6shellSort(CYTHON_UNUSED PyObject *__pyx_self, P
       __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "sort.pyx":49
+      /* "sort.pyx":57
  *     while gap > 0:
  *         for i in range(gap,len(arr)):
  *             temp = arr[i]             # <<<<<<<<<<<<<<
  *             j = i-gap
  *             while j >=0 and arr[j] > temp:
  */
-      __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_v_arr, __pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 49, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_v_arr, __pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 57, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_XDECREF_SET(__pyx_v_temp, __pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "sort.pyx":50
+      /* "sort.pyx":58
  *         for i in range(gap,len(arr)):
  *             temp = arr[i]
  *             j = i-gap             # <<<<<<<<<<<<<<
  *             while j >=0 and arr[j] > temp:
  *                 arr[j+gap]=arr[j]
  */
-      __pyx_t_2 = PyNumber_Subtract(__pyx_v_i, __pyx_v_gap); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 50, __pyx_L1_error)
+      __pyx_t_2 = PyNumber_Subtract(__pyx_v_i, __pyx_v_gap); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 58, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "sort.pyx":51
+      /* "sort.pyx":59
  *             temp = arr[i]
  *             j = i-gap
  *             while j >=0 and arr[j] > temp:             # <<<<<<<<<<<<<<
@@ -2071,65 +2073,65 @@ static PyObject *__pyx_pf_4sort_6shellSort(CYTHON_UNUSED PyObject *__pyx_self, P
  *                 j-=gap
  */
       while (1) {
-        __pyx_t_2 = PyObject_RichCompare(__pyx_v_j, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
-        __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 51, __pyx_L1_error)
+        __pyx_t_2 = PyObject_RichCompare(__pyx_v_j, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 59, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         if (__pyx_t_6) {
         } else {
           __pyx_t_4 = __pyx_t_6;
           goto __pyx_L11_bool_binop_done;
         }
-        __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_v_arr, __pyx_v_j); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_v_arr, __pyx_v_j); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_7 = PyObject_RichCompare(__pyx_t_2, __pyx_v_temp, Py_GT); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 51, __pyx_L1_error)
+        __pyx_t_7 = PyObject_RichCompare(__pyx_t_2, __pyx_v_temp, Py_GT); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 59, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 51, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 59, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         __pyx_t_4 = __pyx_t_6;
         __pyx_L11_bool_binop_done:;
         if (!__pyx_t_4) break;
 
-        /* "sort.pyx":52
+        /* "sort.pyx":60
  *             j = i-gap
  *             while j >=0 and arr[j] > temp:
  *                 arr[j+gap]=arr[j]             # <<<<<<<<<<<<<<
  *                 j-=gap
  *             arr[j+gap] = temp
  */
-        __pyx_t_7 = __Pyx_PyObject_GetItem(__pyx_v_arr, __pyx_v_j); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 52, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyObject_GetItem(__pyx_v_arr, __pyx_v_j); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 60, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
-        __pyx_t_2 = PyNumber_Add(__pyx_v_j, __pyx_v_gap); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
+        __pyx_t_2 = PyNumber_Add(__pyx_v_j, __pyx_v_gap); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 60, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        if (unlikely(PyObject_SetItem(__pyx_v_arr, __pyx_t_2, __pyx_t_7) < 0)) __PYX_ERR(0, 52, __pyx_L1_error)
+        if (unlikely(PyObject_SetItem(__pyx_v_arr, __pyx_t_2, __pyx_t_7) < 0)) __PYX_ERR(0, 60, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-        /* "sort.pyx":53
+        /* "sort.pyx":61
  *             while j >=0 and arr[j] > temp:
  *                 arr[j+gap]=arr[j]
  *                 j-=gap             # <<<<<<<<<<<<<<
  *             arr[j+gap] = temp
  *         gap = math.floor(gap/3)
  */
-        __pyx_t_7 = PyNumber_InPlaceSubtract(__pyx_v_j, __pyx_v_gap); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 53, __pyx_L1_error)
+        __pyx_t_7 = PyNumber_InPlaceSubtract(__pyx_v_j, __pyx_v_gap); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 61, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF_SET(__pyx_v_j, __pyx_t_7);
         __pyx_t_7 = 0;
       }
 
-      /* "sort.pyx":54
+      /* "sort.pyx":62
  *                 arr[j+gap]=arr[j]
  *                 j-=gap
  *             arr[j+gap] = temp             # <<<<<<<<<<<<<<
  *         gap = math.floor(gap/3)
  *     return arr
  */
-      __pyx_t_7 = PyNumber_Add(__pyx_v_j, __pyx_v_gap); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 54, __pyx_L1_error)
+      __pyx_t_7 = PyNumber_Add(__pyx_v_j, __pyx_v_gap); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 62, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      if (unlikely(PyObject_SetItem(__pyx_v_arr, __pyx_t_7, __pyx_v_temp) < 0)) __PYX_ERR(0, 54, __pyx_L1_error)
+      if (unlikely(PyObject_SetItem(__pyx_v_arr, __pyx_t_7, __pyx_v_temp) < 0)) __PYX_ERR(0, 62, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-      /* "sort.pyx":48
+      /* "sort.pyx":56
  *         gap = gap*3+1
  *     while gap > 0:
  *         for i in range(gap,len(arr)):             # <<<<<<<<<<<<<<
@@ -2139,19 +2141,19 @@ static PyObject *__pyx_pf_4sort_6shellSort(CYTHON_UNUSED PyObject *__pyx_self, P
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "sort.pyx":55
+    /* "sort.pyx":63
  *                 j-=gap
  *             arr[j+gap] = temp
  *         gap = math.floor(gap/3)             # <<<<<<<<<<<<<<
  *     return arr
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_math); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 55, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_math); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_floor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 55, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_floor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = __Pyx_PyNumber_Divide(__pyx_v_gap, __pyx_int_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 55, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyNumber_Divide(__pyx_v_gap, __pyx_int_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_8 = NULL;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -2166,14 +2168,14 @@ static PyObject *__pyx_pf_4sort_6shellSort(CYTHON_UNUSED PyObject *__pyx_self, P
     __pyx_t_3 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_8, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_7);
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 55, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF_SET(__pyx_v_gap, __pyx_t_3);
     __pyx_t_3 = 0;
   }
 
-  /* "sort.pyx":56
+  /* "sort.pyx":64
  *             arr[j+gap] = temp
  *         gap = math.floor(gap/3)
  *     return arr             # <<<<<<<<<<<<<<
@@ -2185,9 +2187,9 @@ static PyObject *__pyx_pf_4sort_6shellSort(CYTHON_UNUSED PyObject *__pyx_self, P
   __pyx_r = __pyx_v_arr;
   goto __pyx_L0;
 
-  /* "sort.pyx":43
- * 
- * #
+  /* "sort.pyx":51
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def shellSort(arr):             # <<<<<<<<<<<<<<
  *     gap=1
  *     while(gap < len(arr)/3):
@@ -2211,9 +2213,9 @@ static PyObject *__pyx_pf_4sort_6shellSort(CYTHON_UNUSED PyObject *__pyx_self, P
   return __pyx_r;
 }
 
-/* "sort.pyx":59
- * 
- * #
+/* "sort.pyx":69
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def mergeSort(arr):             # <<<<<<<<<<<<<<
  *     if(len(arr)<2):
  *         return arr
@@ -2250,18 +2252,18 @@ static PyObject *__pyx_pf_4sort_8mergeSort(CYTHON_UNUSED PyObject *__pyx_self, P
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("mergeSort", 0);
 
-  /* "sort.pyx":60
- * #
+  /* "sort.pyx":70
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def mergeSort(arr):
  *     if(len(arr)<2):             # <<<<<<<<<<<<<<
  *         return arr
  *     middle = math.floor(len(arr)/2)
  */
-  __pyx_t_1 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_t_1 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 70, __pyx_L1_error)
   __pyx_t_2 = ((__pyx_t_1 < 2) != 0);
   if (__pyx_t_2) {
 
-    /* "sort.pyx":61
+    /* "sort.pyx":71
  * def mergeSort(arr):
  *     if(len(arr)<2):
  *         return arr             # <<<<<<<<<<<<<<
@@ -2273,8 +2275,8 @@ static PyObject *__pyx_pf_4sort_8mergeSort(CYTHON_UNUSED PyObject *__pyx_self, P
     __pyx_r = __pyx_v_arr;
     goto __pyx_L0;
 
-    /* "sort.pyx":60
- * #
+    /* "sort.pyx":70
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def mergeSort(arr):
  *     if(len(arr)<2):             # <<<<<<<<<<<<<<
  *         return arr
@@ -2282,20 +2284,20 @@ static PyObject *__pyx_pf_4sort_8mergeSort(CYTHON_UNUSED PyObject *__pyx_self, P
  */
   }
 
-  /* "sort.pyx":62
+  /* "sort.pyx":72
  *     if(len(arr)<2):
  *         return arr
  *     middle = math.floor(len(arr)/2)             # <<<<<<<<<<<<<<
  *     left, right = arr[0:middle], arr[middle:]
  *     return merge(mergeSort(left), mergeSort(right))
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_floor); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_floor); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_1 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 62, __pyx_L1_error)
-  __pyx_t_4 = PyInt_FromSsize_t(__Pyx_div_Py_ssize_t(__pyx_t_1, 2)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_1 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_t_4 = PyInt_FromSsize_t(__Pyx_div_Py_ssize_t(__pyx_t_1, 2)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
@@ -2310,29 +2312,29 @@ static PyObject *__pyx_pf_4sort_8mergeSort(CYTHON_UNUSED PyObject *__pyx_self, P
   __pyx_t_3 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_4);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v_middle = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "sort.pyx":63
+  /* "sort.pyx":73
  *         return arr
  *     middle = math.floor(len(arr)/2)
  *     left, right = arr[0:middle], arr[middle:]             # <<<<<<<<<<<<<<
  *     return merge(mergeSort(left), mergeSort(right))
  * 
  */
-  __pyx_t_3 = __Pyx_PyObject_GetSlice(__pyx_v_arr, 0, 0, NULL, &__pyx_v_middle, NULL, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetSlice(__pyx_v_arr, 0, 0, NULL, &__pyx_v_middle, NULL, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetSlice(__pyx_v_arr, 0, 0, &__pyx_v_middle, NULL, NULL, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetSlice(__pyx_v_arr, 0, 0, &__pyx_v_middle, NULL, NULL, 0, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_v_left = __pyx_t_3;
   __pyx_t_3 = 0;
   __pyx_v_right = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "sort.pyx":64
+  /* "sort.pyx":74
  *     middle = math.floor(len(arr)/2)
  *     left, right = arr[0:middle], arr[middle:]
  *     return merge(mergeSort(left), mergeSort(right))             # <<<<<<<<<<<<<<
@@ -2340,7 +2342,7 @@ static PyObject *__pyx_pf_4sort_8mergeSort(CYTHON_UNUSED PyObject *__pyx_self, P
  * cdef list merge(left,right):
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_mergeSort); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_mergeSort); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 74, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -2354,10 +2356,10 @@ static PyObject *__pyx_pf_4sort_8mergeSort(CYTHON_UNUSED PyObject *__pyx_self, P
   }
   __pyx_t_5 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_left) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_left);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 64, __pyx_L1_error)
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 74, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_mergeSort); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_mergeSort); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 74, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
@@ -2371,10 +2373,10 @@ static PyObject *__pyx_pf_4sort_8mergeSort(CYTHON_UNUSED PyObject *__pyx_self, P
   }
   __pyx_t_3 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_6, __pyx_v_right) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_right);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 74, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __pyx_f_4sort_merge(__pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_4 = __pyx_f_4sort_merge(__pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 74, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -2382,9 +2384,9 @@ static PyObject *__pyx_pf_4sort_8mergeSort(CYTHON_UNUSED PyObject *__pyx_self, P
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "sort.pyx":59
- * 
- * #
+  /* "sort.pyx":69
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def mergeSort(arr):             # <<<<<<<<<<<<<<
  *     if(len(arr)<2):
  *         return arr
@@ -2407,7 +2409,7 @@ static PyObject *__pyx_pf_4sort_8mergeSort(CYTHON_UNUSED PyObject *__pyx_self, P
   return __pyx_r;
 }
 
-/* "sort.pyx":66
+/* "sort.pyx":76
  *     return merge(mergeSort(left), mergeSort(right))
  * 
  * cdef list merge(left,right):             # <<<<<<<<<<<<<<
@@ -2430,19 +2432,19 @@ static PyObject *__pyx_f_4sort_merge(PyObject *__pyx_v_left, PyObject *__pyx_v_r
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("merge", 0);
 
-  /* "sort.pyx":67
+  /* "sort.pyx":77
  * 
  * cdef list merge(left,right):
  *     result = []             # <<<<<<<<<<<<<<
  *     while left and right:
  *         if left[0] <= right[0]:
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_result = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "sort.pyx":68
+  /* "sort.pyx":78
  * cdef list merge(left,right):
  *     result = []
  *     while left and right:             # <<<<<<<<<<<<<<
@@ -2450,48 +2452,48 @@ static PyObject *__pyx_f_4sort_merge(PyObject *__pyx_v_left, PyObject *__pyx_v_r
  *             result.append(left.pop(0))
  */
   while (1) {
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_left); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_left); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 78, __pyx_L1_error)
     if (__pyx_t_3) {
     } else {
       __pyx_t_2 = __pyx_t_3;
       goto __pyx_L5_bool_binop_done;
     }
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_right); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_right); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 78, __pyx_L1_error)
     __pyx_t_2 = __pyx_t_3;
     __pyx_L5_bool_binop_done:;
     if (!__pyx_t_2) break;
 
-    /* "sort.pyx":69
+    /* "sort.pyx":79
  *     result = []
  *     while left and right:
  *         if left[0] <= right[0]:             # <<<<<<<<<<<<<<
  *             result.append(left.pop(0))
  *         else:
  */
-    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_left, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_left, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_right, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 69, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_right, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 79, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = PyObject_RichCompare(__pyx_t_1, __pyx_t_4, Py_LE); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 69, __pyx_L1_error)
+    __pyx_t_5 = PyObject_RichCompare(__pyx_t_1, __pyx_t_4, Py_LE); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 79, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 69, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 79, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     if (__pyx_t_2) {
 
-      /* "sort.pyx":70
+      /* "sort.pyx":80
  *     while left and right:
  *         if left[0] <= right[0]:
  *             result.append(left.pop(0))             # <<<<<<<<<<<<<<
  *         else:
  *             result.append(right.pop(0));
  */
-      __pyx_t_5 = __Pyx_PyObject_PopIndex(__pyx_v_left, __pyx_int_0, 0, 1, Py_ssize_t, PyInt_FromSsize_t); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 70, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_PopIndex(__pyx_v_left, __pyx_int_0, 0, 1, Py_ssize_t, PyInt_FromSsize_t); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 80, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_result, __pyx_t_5); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 70, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_result, __pyx_t_5); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 80, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "sort.pyx":69
+      /* "sort.pyx":79
  *     result = []
  *     while left and right:
  *         if left[0] <= right[0]:             # <<<<<<<<<<<<<<
@@ -2501,7 +2503,7 @@ static PyObject *__pyx_f_4sort_merge(PyObject *__pyx_v_left, PyObject *__pyx_v_r
       goto __pyx_L7;
     }
 
-    /* "sort.pyx":72
+    /* "sort.pyx":82
  *             result.append(left.pop(0))
  *         else:
  *             result.append(right.pop(0));             # <<<<<<<<<<<<<<
@@ -2509,15 +2511,15 @@ static PyObject *__pyx_f_4sort_merge(PyObject *__pyx_v_left, PyObject *__pyx_v_r
  *         result.append(left.pop(0))
  */
     /*else*/ {
-      __pyx_t_5 = __Pyx_PyObject_PopIndex(__pyx_v_right, __pyx_int_0, 0, 1, Py_ssize_t, PyInt_FromSsize_t); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_PopIndex(__pyx_v_right, __pyx_int_0, 0, 1, Py_ssize_t, PyInt_FromSsize_t); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 82, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_result, __pyx_t_5); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 72, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_result, __pyx_t_5); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 82, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
     __pyx_L7:;
   }
 
-  /* "sort.pyx":73
+  /* "sort.pyx":83
  *         else:
  *             result.append(right.pop(0));
  *     while left:             # <<<<<<<<<<<<<<
@@ -2525,23 +2527,23 @@ static PyObject *__pyx_f_4sort_merge(PyObject *__pyx_v_left, PyObject *__pyx_v_r
  *     while right:
  */
   while (1) {
-    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_left); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 73, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_left); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 83, __pyx_L1_error)
     if (!__pyx_t_2) break;
 
-    /* "sort.pyx":74
+    /* "sort.pyx":84
  *             result.append(right.pop(0));
  *     while left:
  *         result.append(left.pop(0))             # <<<<<<<<<<<<<<
  *     while right:
  *         result.append(right.pop(0));
  */
-    __pyx_t_5 = __Pyx_PyObject_PopIndex(__pyx_v_left, __pyx_int_0, 0, 1, Py_ssize_t, PyInt_FromSsize_t); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 74, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_PopIndex(__pyx_v_left, __pyx_int_0, 0, 1, Py_ssize_t, PyInt_FromSsize_t); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 84, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_result, __pyx_t_5); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 74, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_result, __pyx_t_5); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 84, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
 
-  /* "sort.pyx":75
+  /* "sort.pyx":85
  *     while left:
  *         result.append(left.pop(0))
  *     while right:             # <<<<<<<<<<<<<<
@@ -2549,23 +2551,23 @@ static PyObject *__pyx_f_4sort_merge(PyObject *__pyx_v_left, PyObject *__pyx_v_r
  *     return result
  */
   while (1) {
-    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_right); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 75, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_right); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 85, __pyx_L1_error)
     if (!__pyx_t_2) break;
 
-    /* "sort.pyx":76
+    /* "sort.pyx":86
  *         result.append(left.pop(0))
  *     while right:
  *         result.append(right.pop(0));             # <<<<<<<<<<<<<<
  *     return result
  * 
  */
-    __pyx_t_5 = __Pyx_PyObject_PopIndex(__pyx_v_right, __pyx_int_0, 0, 1, Py_ssize_t, PyInt_FromSsize_t); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_PopIndex(__pyx_v_right, __pyx_int_0, 0, 1, Py_ssize_t, PyInt_FromSsize_t); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 86, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_result, __pyx_t_5); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 76, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_result, __pyx_t_5); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 86, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
 
-  /* "sort.pyx":77
+  /* "sort.pyx":87
  *     while right:
  *         result.append(right.pop(0));
  *     return result             # <<<<<<<<<<<<<<
@@ -2577,7 +2579,7 @@ static PyObject *__pyx_f_4sort_merge(PyObject *__pyx_v_left, PyObject *__pyx_v_r
   __pyx_r = __pyx_v_result;
   goto __pyx_L0;
 
-  /* "sort.pyx":66
+  /* "sort.pyx":76
  *     return merge(mergeSort(left), mergeSort(right))
  * 
  * cdef list merge(left,right):             # <<<<<<<<<<<<<<
@@ -2599,9 +2601,9 @@ static PyObject *__pyx_f_4sort_merge(PyObject *__pyx_v_left, PyObject *__pyx_v_r
   return __pyx_r;
 }
 
-/* "sort.pyx":80
- * 
- * #
+/* "sort.pyx":92
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def quickSort(arr, left=None, right=None):             # <<<<<<<<<<<<<<
  *     left = 0 if not isinstance(left,(int, float)) else left
  *     right = len(arr)-1 if not isinstance(right,(int, float)) else right
@@ -2657,7 +2659,7 @@ static PyObject *__pyx_pw_4sort_11quickSort(PyObject *__pyx_self, PyObject *__py
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "quickSort") < 0)) __PYX_ERR(0, 80, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "quickSort") < 0)) __PYX_ERR(0, 92, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -2676,7 +2678,7 @@ static PyObject *__pyx_pw_4sort_11quickSort(PyObject *__pyx_self, PyObject *__py
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("quickSort", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 80, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("quickSort", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 92, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("sort.quickSort", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2710,8 +2712,8 @@ static PyObject *__pyx_pf_4sort_10quickSort(CYTHON_UNUSED PyObject *__pyx_self, 
   __Pyx_INCREF(__pyx_v_left);
   __Pyx_INCREF(__pyx_v_right);
 
-  /* "sort.pyx":81
- * #
+  /* "sort.pyx":93
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def quickSort(arr, left=None, right=None):
  *     left = 0 if not isinstance(left,(int, float)) else left             # <<<<<<<<<<<<<<
  *     right = len(arr)-1 if not isinstance(right,(int, float)) else right
@@ -2738,7 +2740,7 @@ static PyObject *__pyx_pf_4sort_10quickSort(CYTHON_UNUSED PyObject *__pyx_self, 
   __Pyx_DECREF_SET(__pyx_v_left, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "sort.pyx":82
+  /* "sort.pyx":94
  * def quickSort(arr, left=None, right=None):
  *     left = 0 if not isinstance(left,(int, float)) else left
  *     right = len(arr)-1 if not isinstance(right,(int, float)) else right             # <<<<<<<<<<<<<<
@@ -2757,8 +2759,8 @@ static PyObject *__pyx_pf_4sort_10quickSort(CYTHON_UNUSED PyObject *__pyx_self, 
   __pyx_t_2 = __pyx_t_3;
   __pyx_L5_bool_binop_done:;
   if (((!(__pyx_t_2 != 0)) != 0)) {
-    __pyx_t_5 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 82, __pyx_L1_error)
-    __pyx_t_6 = PyInt_FromSsize_t((__pyx_t_5 - 1)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 82, __pyx_L1_error)
+    __pyx_t_5 = PyObject_Length(__pyx_v_arr); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 94, __pyx_L1_error)
+    __pyx_t_6 = PyInt_FromSsize_t((__pyx_t_5 - 1)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 94, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_1 = __pyx_t_6;
     __pyx_t_6 = 0;
@@ -2769,26 +2771,26 @@ static PyObject *__pyx_pf_4sort_10quickSort(CYTHON_UNUSED PyObject *__pyx_self, 
   __Pyx_DECREF_SET(__pyx_v_right, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "sort.pyx":83
+  /* "sort.pyx":95
  *     left = 0 if not isinstance(left,(int, float)) else left
  *     right = len(arr)-1 if not isinstance(right,(int, float)) else right
  *     if left < right:             # <<<<<<<<<<<<<<
  *         partitionIndex = partition(arr, left, right)
  *         quickSort(arr, left, partitionIndex-1)
  */
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_left, __pyx_v_right, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 83, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_left, __pyx_v_right, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "sort.pyx":84
+    /* "sort.pyx":96
  *     right = len(arr)-1 if not isinstance(right,(int, float)) else right
  *     if left < right:
  *         partitionIndex = partition(arr, left, right)             # <<<<<<<<<<<<<<
  *         quickSort(arr, left, partitionIndex-1)
  *         quickSort(arr, partitionIndex+1, right)
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_partition); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 84, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_partition); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 96, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_7 = NULL;
     __pyx_t_8 = 0;
@@ -2805,7 +2807,7 @@ static PyObject *__pyx_pf_4sort_10quickSort(CYTHON_UNUSED PyObject *__pyx_self, 
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_v_arr, __pyx_v_left, __pyx_v_right};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_GOTREF(__pyx_t_1);
     } else
@@ -2813,13 +2815,13 @@ static PyObject *__pyx_pf_4sort_10quickSort(CYTHON_UNUSED PyObject *__pyx_self, 
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_v_arr, __pyx_v_left, __pyx_v_right};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_GOTREF(__pyx_t_1);
     } else
     #endif
     {
-      __pyx_t_9 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 84, __pyx_L1_error)
+      __pyx_t_9 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 96, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       if (__pyx_t_7) {
         __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_7); __pyx_t_7 = NULL;
@@ -2833,7 +2835,7 @@ static PyObject *__pyx_pf_4sort_10quickSort(CYTHON_UNUSED PyObject *__pyx_self, 
       __Pyx_INCREF(__pyx_v_right);
       __Pyx_GIVEREF(__pyx_v_right);
       PyTuple_SET_ITEM(__pyx_t_9, 2+__pyx_t_8, __pyx_v_right);
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     }
@@ -2841,16 +2843,16 @@ static PyObject *__pyx_pf_4sort_10quickSort(CYTHON_UNUSED PyObject *__pyx_self, 
     __pyx_v_partitionIndex = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "sort.pyx":85
+    /* "sort.pyx":97
  *     if left < right:
  *         partitionIndex = partition(arr, left, right)
  *         quickSort(arr, left, partitionIndex-1)             # <<<<<<<<<<<<<<
  *         quickSort(arr, partitionIndex+1, right)
  *     return arr
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_quickSort); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 85, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_quickSort); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 97, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_9 = __Pyx_PyInt_SubtractObjC(__pyx_v_partitionIndex, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 85, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyInt_SubtractObjC(__pyx_v_partitionIndex, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 97, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __pyx_t_7 = NULL;
     __pyx_t_8 = 0;
@@ -2867,7 +2869,7 @@ static PyObject *__pyx_pf_4sort_10quickSort(CYTHON_UNUSED PyObject *__pyx_self, 
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_v_arr, __pyx_v_left, __pyx_t_9};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -2876,14 +2878,14 @@ static PyObject *__pyx_pf_4sort_10quickSort(CYTHON_UNUSED PyObject *__pyx_self, 
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_v_arr, __pyx_v_left, __pyx_t_9};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     } else
     #endif
     {
-      __pyx_t_10 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 85, __pyx_L1_error)
+      __pyx_t_10 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 97, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       if (__pyx_t_7) {
         __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_7); __pyx_t_7 = NULL;
@@ -2897,23 +2899,23 @@ static PyObject *__pyx_pf_4sort_10quickSort(CYTHON_UNUSED PyObject *__pyx_self, 
       __Pyx_GIVEREF(__pyx_t_9);
       PyTuple_SET_ITEM(__pyx_t_10, 2+__pyx_t_8, __pyx_t_9);
       __pyx_t_9 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_10, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_10, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     }
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "sort.pyx":86
+    /* "sort.pyx":98
  *         partitionIndex = partition(arr, left, right)
  *         quickSort(arr, left, partitionIndex-1)
  *         quickSort(arr, partitionIndex+1, right)             # <<<<<<<<<<<<<<
  *     return arr
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_quickSort); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 86, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_quickSort); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 98, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_10 = __Pyx_PyInt_AddObjC(__pyx_v_partitionIndex, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 86, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyInt_AddObjC(__pyx_v_partitionIndex, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 98, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __pyx_t_9 = NULL;
     __pyx_t_8 = 0;
@@ -2930,7 +2932,7 @@ static PyObject *__pyx_pf_4sort_10quickSort(CYTHON_UNUSED PyObject *__pyx_self, 
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[4] = {__pyx_t_9, __pyx_v_arr, __pyx_t_10, __pyx_v_right};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -2939,14 +2941,14 @@ static PyObject *__pyx_pf_4sort_10quickSort(CYTHON_UNUSED PyObject *__pyx_self, 
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[4] = {__pyx_t_9, __pyx_v_arr, __pyx_t_10, __pyx_v_right};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     } else
     #endif
     {
-      __pyx_t_7 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 86, __pyx_L1_error)
+      __pyx_t_7 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 98, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       if (__pyx_t_9) {
         __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -2960,14 +2962,14 @@ static PyObject *__pyx_pf_4sort_10quickSort(CYTHON_UNUSED PyObject *__pyx_self, 
       __Pyx_GIVEREF(__pyx_v_right);
       PyTuple_SET_ITEM(__pyx_t_7, 2+__pyx_t_8, __pyx_v_right);
       __pyx_t_10 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     }
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "sort.pyx":83
+    /* "sort.pyx":95
  *     left = 0 if not isinstance(left,(int, float)) else left
  *     right = len(arr)-1 if not isinstance(right,(int, float)) else right
  *     if left < right:             # <<<<<<<<<<<<<<
@@ -2976,7 +2978,7 @@ static PyObject *__pyx_pf_4sort_10quickSort(CYTHON_UNUSED PyObject *__pyx_self, 
  */
   }
 
-  /* "sort.pyx":87
+  /* "sort.pyx":99
  *         quickSort(arr, left, partitionIndex-1)
  *         quickSort(arr, partitionIndex+1, right)
  *     return arr             # <<<<<<<<<<<<<<
@@ -2988,9 +2990,9 @@ static PyObject *__pyx_pf_4sort_10quickSort(CYTHON_UNUSED PyObject *__pyx_self, 
   __pyx_r = __pyx_v_arr;
   goto __pyx_L0;
 
-  /* "sort.pyx":80
- * 
- * #
+  /* "sort.pyx":92
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def quickSort(arr, left=None, right=None):             # <<<<<<<<<<<<<<
  *     left = 0 if not isinstance(left,(int, float)) else left
  *     right = len(arr)-1 if not isinstance(right,(int, float)) else right
@@ -3014,7 +3016,7 @@ static PyObject *__pyx_pf_4sort_10quickSort(CYTHON_UNUSED PyObject *__pyx_self, 
   return __pyx_r;
 }
 
-/* "sort.pyx":89
+/* "sort.pyx":101
  *     return arr
  * 
  * def partition(arr, left, right):             # <<<<<<<<<<<<<<
@@ -3060,17 +3062,17 @@ static PyObject *__pyx_pw_4sort_13partition(PyObject *__pyx_self, PyObject *__py
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_left)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("partition", 1, 3, 3, 1); __PYX_ERR(0, 89, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("partition", 1, 3, 3, 1); __PYX_ERR(0, 101, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_right)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("partition", 1, 3, 3, 2); __PYX_ERR(0, 89, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("partition", 1, 3, 3, 2); __PYX_ERR(0, 101, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "partition") < 0)) __PYX_ERR(0, 89, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "partition") < 0)) __PYX_ERR(0, 101, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -3085,7 +3087,7 @@ static PyObject *__pyx_pw_4sort_13partition(PyObject *__pyx_self, PyObject *__py
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("partition", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 89, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("partition", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 101, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("sort.partition", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3114,7 +3116,7 @@ static PyObject *__pyx_pf_4sort_12partition(CYTHON_UNUSED PyObject *__pyx_self, 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("partition", 0);
 
-  /* "sort.pyx":91
+  /* "sort.pyx":103
  * def partition(arr, left, right):
  *     cdef int i, index
  *     pivot = left             # <<<<<<<<<<<<<<
@@ -3124,20 +3126,20 @@ static PyObject *__pyx_pf_4sort_12partition(CYTHON_UNUSED PyObject *__pyx_self, 
   __Pyx_INCREF(__pyx_v_left);
   __pyx_v_pivot = __pyx_v_left;
 
-  /* "sort.pyx":92
+  /* "sort.pyx":104
  *     cdef int i, index
  *     pivot = left
  *     index = pivot+1             # <<<<<<<<<<<<<<
  *     i = index
  *     while  i <= right:
  */
-  __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_pivot, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_pivot, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_index = __pyx_t_2;
 
-  /* "sort.pyx":93
+  /* "sort.pyx":105
  *     pivot = left
  *     index = pivot+1
  *     i = index             # <<<<<<<<<<<<<<
@@ -3146,7 +3148,7 @@ static PyObject *__pyx_pf_4sort_12partition(CYTHON_UNUSED PyObject *__pyx_self, 
  */
   __pyx_v_i = __pyx_v_index;
 
-  /* "sort.pyx":94
+  /* "sort.pyx":106
  *     index = pivot+1
  *     i = index
  *     while  i <= right:             # <<<<<<<<<<<<<<
@@ -3154,44 +3156,44 @@ static PyObject *__pyx_pf_4sort_12partition(CYTHON_UNUSED PyObject *__pyx_self, 
  *             swap(arr, i, index)
  */
   while (1) {
-    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_v_right, Py_LE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 94, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_v_right, Py_LE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 106, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 94, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 106, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (!__pyx_t_4) break;
 
-    /* "sort.pyx":95
+    /* "sort.pyx":107
  *     i = index
  *     while  i <= right:
  *         if arr[i] < arr[pivot]:             # <<<<<<<<<<<<<<
  *             swap(arr, i, index)
  *             index+=1
  */
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 95, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_arr, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 107, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_v_arr, __pyx_v_pivot); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_v_arr, __pyx_v_pivot); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = PyObject_RichCompare(__pyx_t_3, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 95, __pyx_L1_error)
+    __pyx_t_5 = PyObject_RichCompare(__pyx_t_3, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 107, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 95, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 107, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     if (__pyx_t_4) {
 
-      /* "sort.pyx":96
+      /* "sort.pyx":108
  *     while  i <= right:
  *         if arr[i] < arr[pivot]:
  *             swap(arr, i, index)             # <<<<<<<<<<<<<<
  *             index+=1
  *         i+=1
  */
-      __pyx_t_5 = __pyx_f_4sort_swap(__pyx_v_arr, __pyx_v_i, __pyx_v_index); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 96, __pyx_L1_error)
+      __pyx_t_5 = __pyx_f_4sort_swap(__pyx_v_arr, __pyx_v_i, __pyx_v_index); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 108, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "sort.pyx":97
+      /* "sort.pyx":109
  *         if arr[i] < arr[pivot]:
  *             swap(arr, i, index)
  *             index+=1             # <<<<<<<<<<<<<<
@@ -3200,7 +3202,7 @@ static PyObject *__pyx_pf_4sort_12partition(CYTHON_UNUSED PyObject *__pyx_self, 
  */
       __pyx_v_index = (__pyx_v_index + 1);
 
-      /* "sort.pyx":95
+      /* "sort.pyx":107
  *     i = index
  *     while  i <= right:
  *         if arr[i] < arr[pivot]:             # <<<<<<<<<<<<<<
@@ -3209,7 +3211,7 @@ static PyObject *__pyx_pf_4sort_12partition(CYTHON_UNUSED PyObject *__pyx_self, 
  */
     }
 
-    /* "sort.pyx":98
+    /* "sort.pyx":110
  *             swap(arr, i, index)
  *             index+=1
  *         i+=1             # <<<<<<<<<<<<<<
@@ -3219,32 +3221,32 @@ static PyObject *__pyx_pf_4sort_12partition(CYTHON_UNUSED PyObject *__pyx_self, 
     __pyx_v_i = (__pyx_v_i + 1);
   }
 
-  /* "sort.pyx":99
+  /* "sort.pyx":111
  *             index+=1
  *         i+=1
  *     swap(arr,pivot,index-1)             # <<<<<<<<<<<<<<
  *     return index-1
  * 
  */
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_pivot); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 99, __pyx_L1_error)
-  __pyx_t_5 = __pyx_f_4sort_swap(__pyx_v_arr, __pyx_t_2, (__pyx_v_index - 1)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 99, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_pivot); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 111, __pyx_L1_error)
+  __pyx_t_5 = __pyx_f_4sort_swap(__pyx_v_arr, __pyx_t_2, (__pyx_v_index - 1)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "sort.pyx":100
+  /* "sort.pyx":112
  *         i+=1
  *     swap(arr,pivot,index-1)
  *     return index-1             # <<<<<<<<<<<<<<
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_5 = __Pyx_PyInt_From_long((__pyx_v_index - 1)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 100, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_long((__pyx_v_index - 1)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "sort.pyx":89
+  /* "sort.pyx":101
  *     return arr
  * 
  * def partition(arr, left, right):             # <<<<<<<<<<<<<<
@@ -3347,7 +3349,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 12, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -3357,89 +3359,89 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "sort.pyx":8
- * 
- * #
+  /* "sort.pyx":10
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def bubbleSort(arr):             # <<<<<<<<<<<<<<
  *     cdef int i, j
  *     for i in range(1, len(arr)):
  */
-  __pyx_tuple_ = PyTuple_Pack(3, __pyx_n_s_arr, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(3, __pyx_n_s_arr, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_sort_pyx, __pyx_n_s_bubbleSort, 8, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_sort_pyx, __pyx_n_s_bubbleSort, 10, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 10, __pyx_L1_error)
 
-  /* "sort.pyx":17
- * 
- * #
+  /* "sort.pyx":21
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def selectionSort(arr):             # <<<<<<<<<<<<<<
  *     cdef int i, j
  *     for i in range(len(arr) - 1):
  */
-  __pyx_tuple__3 = PyTuple_Pack(4, __pyx_n_s_arr, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_minIndex); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(4, __pyx_n_s_arr, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_minIndex); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_sort_pyx, __pyx_n_s_selectionSort, 17, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_sort_pyx, __pyx_n_s_selectionSort, 21, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 21, __pyx_L1_error)
 
-  /* "sort.pyx":31
- * 
- * #
+  /* "sort.pyx":37
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def insertionSort(arr):             # <<<<<<<<<<<<<<
  *     cdef int i, preIndex
  *     for i in range(len(arr)):
  */
-  __pyx_tuple__5 = PyTuple_Pack(4, __pyx_n_s_arr, __pyx_n_s_i, __pyx_n_s_preIndex, __pyx_n_s_current); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(4, __pyx_n_s_arr, __pyx_n_s_i, __pyx_n_s_preIndex, __pyx_n_s_current); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
-  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_sort_pyx, __pyx_n_s_insertionSort, 31, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_sort_pyx, __pyx_n_s_insertionSort, 37, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 37, __pyx_L1_error)
 
-  /* "sort.pyx":43
- * 
- * #
+  /* "sort.pyx":51
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def shellSort(arr):             # <<<<<<<<<<<<<<
  *     gap=1
  *     while(gap < len(arr)/3):
  */
-  __pyx_tuple__7 = PyTuple_Pack(5, __pyx_n_s_arr, __pyx_n_s_gap, __pyx_n_s_i, __pyx_n_s_temp, __pyx_n_s_j); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_tuple__7 = PyTuple_Pack(5, __pyx_n_s_arr, __pyx_n_s_gap, __pyx_n_s_i, __pyx_n_s_temp, __pyx_n_s_j); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
-  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_sort_pyx, __pyx_n_s_shellSort, 43, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_sort_pyx, __pyx_n_s_shellSort, 51, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 51, __pyx_L1_error)
 
-  /* "sort.pyx":59
- * 
- * #
+  /* "sort.pyx":69
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def mergeSort(arr):             # <<<<<<<<<<<<<<
  *     if(len(arr)<2):
  *         return arr
  */
-  __pyx_tuple__9 = PyTuple_Pack(4, __pyx_n_s_arr, __pyx_n_s_middle, __pyx_n_s_left, __pyx_n_s_right); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_tuple__9 = PyTuple_Pack(4, __pyx_n_s_arr, __pyx_n_s_middle, __pyx_n_s_left, __pyx_n_s_right); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
-  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_sort_pyx, __pyx_n_s_mergeSort, 59, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_sort_pyx, __pyx_n_s_mergeSort, 69, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 69, __pyx_L1_error)
 
-  /* "sort.pyx":80
- * 
- * #
+  /* "sort.pyx":92
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def quickSort(arr, left=None, right=None):             # <<<<<<<<<<<<<<
  *     left = 0 if not isinstance(left,(int, float)) else left
  *     right = len(arr)-1 if not isinstance(right,(int, float)) else right
  */
-  __pyx_tuple__11 = PyTuple_Pack(4, __pyx_n_s_arr, __pyx_n_s_left, __pyx_n_s_right, __pyx_n_s_partitionIndex); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_tuple__11 = PyTuple_Pack(4, __pyx_n_s_arr, __pyx_n_s_left, __pyx_n_s_right, __pyx_n_s_partitionIndex); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(3, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_sort_pyx, __pyx_n_s_quickSort, 80, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(3, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_sort_pyx, __pyx_n_s_quickSort, 92, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 92, __pyx_L1_error)
 
-  /* "sort.pyx":89
+  /* "sort.pyx":101
  *     return arr
  * 
  * def partition(arr, left, right):             # <<<<<<<<<<<<<<
  *     cdef int i, index
  *     pivot = left
  */
-  __pyx_tuple__13 = PyTuple_Pack(6, __pyx_n_s_arr, __pyx_n_s_left, __pyx_n_s_right, __pyx_n_s_i, __pyx_n_s_index, __pyx_n_s_pivot); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_tuple__13 = PyTuple_Pack(6, __pyx_n_s_arr, __pyx_n_s_left, __pyx_n_s_right, __pyx_n_s_i, __pyx_n_s_index, __pyx_n_s_pivot); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 101, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__13);
   __Pyx_GIVEREF(__pyx_tuple__13);
-  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(3, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_sort_pyx, __pyx_n_s_partition, 89, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(3, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_sort_pyx, __pyx_n_s_partition, 101, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 101, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -3725,7 +3727,7 @@ if (!__Pyx_RefNanny) {
 
   /* "sort.pyx":1
  * import math             # <<<<<<<<<<<<<<
- * 
+ * cimport cython
  * cdef swap(arr, int i, int j):
  */
   __pyx_t_1 = __Pyx_Import(__pyx_n_s_math, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -3733,93 +3735,93 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_math, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "sort.pyx":8
- * 
- * #
+  /* "sort.pyx":10
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def bubbleSort(arr):             # <<<<<<<<<<<<<<
  *     cdef int i, j
  *     for i in range(1, len(arr)):
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_4sort_1bubbleSort, NULL, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_4sort_1bubbleSort, NULL, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_bubbleSort, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_bubbleSort, __pyx_t_1) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "sort.pyx":17
- * 
- * #
+  /* "sort.pyx":21
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def selectionSort(arr):             # <<<<<<<<<<<<<<
  *     cdef int i, j
  *     for i in range(len(arr) - 1):
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_4sort_3selectionSort, NULL, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_4sort_3selectionSort, NULL, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_selectionSort, __pyx_t_1) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_selectionSort, __pyx_t_1) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "sort.pyx":31
- * 
- * #
+  /* "sort.pyx":37
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def insertionSort(arr):             # <<<<<<<<<<<<<<
  *     cdef int i, preIndex
  *     for i in range(len(arr)):
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_4sort_5insertionSort, NULL, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_4sort_5insertionSort, NULL, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_insertionSort, __pyx_t_1) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_insertionSort, __pyx_t_1) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "sort.pyx":43
- * 
- * #
+  /* "sort.pyx":51
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def shellSort(arr):             # <<<<<<<<<<<<<<
  *     gap=1
  *     while(gap < len(arr)/3):
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_4sort_7shellSort, NULL, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_4sort_7shellSort, NULL, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_shellSort, __pyx_t_1) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_shellSort, __pyx_t_1) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "sort.pyx":59
- * 
- * #
+  /* "sort.pyx":69
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def mergeSort(arr):             # <<<<<<<<<<<<<<
  *     if(len(arr)<2):
  *         return arr
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_4sort_9mergeSort, NULL, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_4sort_9mergeSort, NULL, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_mergeSort, __pyx_t_1) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_mergeSort, __pyx_t_1) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "sort.pyx":80
- * 
- * #
+  /* "sort.pyx":92
+ * @cython.boundscheck(False)  # Deactivate bounds checking
+ * @cython.wraparound(False)   # Deactivate negative indexing.
  * def quickSort(arr, left=None, right=None):             # <<<<<<<<<<<<<<
  *     left = 0 if not isinstance(left,(int, float)) else left
  *     right = len(arr)-1 if not isinstance(right,(int, float)) else right
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_4sort_11quickSort, NULL, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_4sort_11quickSort, NULL, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_quickSort, __pyx_t_1) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_quickSort, __pyx_t_1) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "sort.pyx":89
+  /* "sort.pyx":101
  *     return arr
  * 
  * def partition(arr, left, right):             # <<<<<<<<<<<<<<
  *     cdef int i, index
  *     pivot = left
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_4sort_13partition, NULL, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_4sort_13partition, NULL, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_partition, __pyx_t_1) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_partition, __pyx_t_1) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "sort.pyx":1
  * import math             # <<<<<<<<<<<<<<
- * 
+ * cimport cython
  * cdef swap(arr, int i, int j):
  */
   __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
