@@ -29,7 +29,7 @@ def selectionSort(arr):
 
 # 插入排序
 def insertionSort(arr):
-    cdef int i, j
+    cdef int i, preIndex
     for i in range(len(arr)):
         preIndex = i-1
         current = arr[i]
